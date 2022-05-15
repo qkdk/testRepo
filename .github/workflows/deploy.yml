@@ -12,6 +12,37 @@ jobs:
     - name: 체크아웃 Github Action
       uses: actions/checkout@v2
     
+    - name: 도커설치1
+      run: sudo apt-get update
+      
+    - name: 도커설치2
+      run: sudo apt-get install \
+            ca-certificates \
+            curl \
+            gnupg \
+            lsb-release
+            
+    - name: 도커설치3
+      run: curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+      
+    - name: 도커설치4
+      run: echo \
+            "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
+            $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+    
+    - name: 도커설치5
+      run: sudo apt-get update
+      
+    - name: 도커설치6
+      run: sudo apt-get install do sudo apt-get install docker-ce=<VERSION_STRING> docker-ce-cli=<VERSION_STRING> containerd.io docker-compose-plugin
+cker-ce docker-ce-cli containerd.io docker-compose-plugin
+
+    - name: 도커설치7
+      run: apt-cache madison docker-ce
+      
+    - name: 도커설치8
+      run: sudo apt-get install docker-ce=<VERSION_STRING> docker-ce-cli=<VERSION_STRING> containerd.io docker-compose-plugin
+
     - name: 하이퍼레저 패브릭 클론
       run: curl -sSL https://bit.ly/2ysbOFE | bash -s -- 2.2.2 1.4.9
     

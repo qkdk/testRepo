@@ -16,11 +16,7 @@ jobs:
       run: sudo apt-get update
       
     - name: 도커설치2
-      run: sudo apt-get install \
-            ca-certificates \
-            curl \
-            gnupg \
-            lsb-release
+      run: sudo apt-get install ca-certificates curl gnupg lsb-release
             
     - name: 도커설치3
       run: curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg

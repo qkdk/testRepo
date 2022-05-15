@@ -12,9 +12,6 @@ jobs:
     - name: 체크아웃 Github Action
       uses: actions/checkout@v2
     
-    - name: Build the stack
-      run: docker-compose up -d
-
     - name: 하이퍼레저 패브릭 클론
       run: curl -sSL https://bit.ly/2ysbOFE | bash -s -- 2.2.2 1.4.9
     

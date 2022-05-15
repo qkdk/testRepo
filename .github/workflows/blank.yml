@@ -1,0 +1,24 @@
+name: CI
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+    
+    steps:
+    - name: 체크아웃 Github Action
+      uses: actions/checkout@v2
+    
+    - name: 하이퍼레저 패브릭 클론
+      run: curl -sSL https://bit.ly/2ysbOFE | bash -s -- 2.2.2 1.4.9
+    
+    - name: 폴더가기
+      run: cd fabric-samples/test-network
+      
+    - name: 패브릭키기
+      run: ./network.sh up createChannel -c mychannel -ca
+
+  

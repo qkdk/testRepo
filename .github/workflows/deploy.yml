@@ -46,9 +46,14 @@ jobs:
       run: curl -sSL https://bit.ly/2ysbOFE | bash -s -- 2.2.2 1.4.9
       
     - name: echo9
-      run: echo | ls
+      run: |
+        echo | ls
+        cd fabric-samples/
+        echo | ls/
+        cd test-network/
+        echo | ls/
       
     - name: 패브릭키기
-      run: ./fabric-samples/test-network/network.sh up createChannel -c mychannel -ca
+      run: network.sh up createChannel -c mychannel -ca
 
   

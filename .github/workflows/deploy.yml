@@ -45,17 +45,10 @@ jobs:
     - name: 하이퍼레저 패브릭 클론
       run: curl -sSL https://bit.ly/2ysbOFE | bash -s -- 2.2.2 1.4.9
       
-      
-    - name: echo9
-      run: echo | ls
-    
-    - name: 폴더가기
-      run: cd fabric-samples/test-network
-      
     - name: echo9
       run: echo | ls
       
     - name: 패브릭키기
-      run: ./network.sh up createChannel -c mychannel -ca
+      run: ./fabric-samples/test-network/network.sh up createChannel -c mychannel -ca
 
   
